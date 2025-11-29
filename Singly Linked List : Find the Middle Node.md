@@ -39,55 +39,43 @@ To write a Python program that:
 ```
 class Node:
     def __init__(self, data):
-        self.data = data
-        self.next = None
-
+       self.data = data
+       self.next = None
 class LinkedList:
+ 
     def __init__(self):
-        self.head = None
-
+       self.head = None
     def append(self, data):
-        new_node = Node(data)
-        if not self.head:
-            self.head = new_node
-            return
-        last = self.head
-        while last.next:
-            last = last.next
-        last.next = new_node
+       new_node = Node(data)
+       if not self.head:
+          self.head = new_node
+          return
+       temp = self.head
 
+       while temp.next:
+          temp = temp.next
+          temp.next = new_node
     def get_middle_recursive(self, slow, fast):
-        # Base cases: when fast is None (end) or fast.next is None (end - odd or even length)
-        if fast is None:
-            return slow
-        if fast.next is None:
-            return slow.next  # for even length, return second middle node
-
-        # Recursive call: move slow by 1, fast by 2
-        return self.get_middle_recursive(slow.next, fast.next.next)
-
+      if not fast or not fast.next:
+          return slow # Return the middle node
+          return self.get_middle_recursive(slow.next, fast.next.next)
     def find_middle(self):
-        if not self.head:
-            return None
-        return self.get_middle_recursive(self.head, self.head).data
-
-n = int(input("Enter number of elements: "))
+       if not self.head:
+          return None
+       middle_node = self.get_middle_recursive(self.head, self.head)
+          return middle_node.data if middle_node else None
+         n = int(input().strip()) # Number of elements
+         arr = list(map(int, input().strip().split())) # Linked list elements
+# Create linked list and append elements
 ll = LinkedList()
-print("Enter the elements separated by spaces:")
-elements = list(map(int, input().split()))
-for el in elements:
-    ll.append(el)
-
-middle = ll.find_middle()
-print("Middle element:", middle)
+for num in arr:
+    ll.append(num)
+# Find and print middle element
+print(ll.find_middle())
 ```
-
 ## Sample Input & Output
-```
-Enter number of elements: 6
-Enter the elements separated by spaces:
-10 20 30 40 50 60
-Middle element: 40
-```
+![image](https://github.com/user-attachments/assets/d5ecc29a-03f2-44cd-a60e-40e2977ed879)
+
 ## Result
-Hence Found the Middle Node of a Singly Linked List Using Recursion
+Thus, the Python program has been created and executed successfully ..
+
