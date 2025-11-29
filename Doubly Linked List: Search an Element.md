@@ -35,69 +35,51 @@ To write a Python program that:
 
 ## 💻 Program
 ```
-class Nodeq:
-    def __init__(self, data):
-        self.data = data
-        self.next = None  # reference to next node
-        self.prev = None  # reference to previous node
+class Node q:
+def init (self, data): 
+   self.data = data 
+   self.next = None 
+   self.prev = None
+class DoublyLinkedList: 
+   def init (self):
+      self.head = None
+   def insert_beginning(self,data): 
+      new_node = Nodeq(data) 
+      if(self.head == None):
+         self.head = new_node 
+         return
+      self.head.prev = new_node 
+      new_node.next = self.head 
+      self.head = new_node
 
-class DoublyLinkedList:
-    def __init__(self):
-        self.head = None
-    def insert_beginning(self, data):
-        new_node = Nodeq(data)
-        if self.head is None:
-            self.head = new_node
-        else:
-            new_node.next = self.head
-            self.head.prev = new_node
-            self.head = new_node
-
-  
-    def insert_end(self, data):
-        new_node = Nodeq(data)
-        if self.head is None:
-            self.head = new_node
-            return
-        n = self.head
-        while n.next:
-            n = n.next
-        n.next = new_node
-        new_node.prev = n
-
-    def search(self, data):
-        current = self.head
-        while current:
-            if current.data == data:
-                return True
-            current = current.next
-        return False
-
-    def traverse_list(self):
-        elems = []
-        current = self.head
-        while current:
-            elems.append(current.data)
-            current = current.next
-        print("Doubly Linked List:", elems)
-
-dll = DoublyLinkedList()
-dll.insert_beginning(30)
-dll.insert_beginning(20)
-dll.insert_beginning(10)
-dll.insert_end(40)
-dll.insert_end(50)
-dll.traverse_list()
-
-
-print("Search 20:", "Found" if dll.search(20) else "Not Found")
-print("Search 60:", "Found" if dll.search(60) else "Not Found")
+def insert_end(self, new_data): 
+      new_node = Nodeq(new_data) 
+      if self.head is None:
+         new_node.prev = None 
+         self.head = new_node 
+         return
+      last = self.head 
+while last.next:
+      last = last.next 
+      last.next = new_node 
+      new_node.prev = last
+def search(self,data): 
+      current = self.head 
+while current:
+      if current.data == data: 
+         return True
+      current = current.next
+print("The given data doesnot exist:") 
+      return False
+Dllist = DoublyLinkedList() 
+Dllist.insert_beginning(2) 
+Dllist.insert_end(0) 
+Dllist.insert_end(1) 
+print(Dllist.search(0)) 
+print(Dllist.search(3))
 ```
 ## Sample Output
-```
-Doubly Linked List: [10, 20, 30, 40, 50]
-Search 20: Found
-Search 60: Not Found
-```
+![image](https://github.com/user-attachments/assets/c33c09b5-84d2-4382-a1e9-b8522a49b7eb)
+
 ## Result
-Hence  Searched an Element in Doubly Linked List.
+Thus the program has been successfully executed
