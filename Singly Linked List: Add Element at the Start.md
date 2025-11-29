@@ -34,40 +34,43 @@ To write a Python program that adds a **new element** at the **start** of a sing
 ---
 
 ## Program
-```
+~~~
 class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+  def __init__(self, data):
+    self.data = data
+    self.next = None
 
 class LinkedList:
-    def __init__(self):
-        self.head = None
+  def __init__(self):
+    self.head = None
 
-    def push_front(self, newElement):
-        new_node = Node(newElement)
-        new_node.next = self.head
-        self.head = new_node
+  def push_front(self, newElement):
+    newNode = Node(newElement)
+    newNode.next = self.head 
+    self.head = newNode   
 
-    def PrintList(self):
-        if self.head is None:
-            print("The list is empty.")
-            return
-        current = self.head
-        while current:
-            print(current.data, end=" -> " if current.next else "")
-            current = current.next
-        print()
+  def PrintList(self):
+    temp = self.head
+    if(temp != None):
+      print("The list contains:", end=" ")
+      while (temp != None):
+        print(temp.data, end=" ")
+        temp = temp.next
+      print()
+    else:
+      print("The list is empty.")
+
 MyList = LinkedList()
+
 MyList.push_front(10)
 MyList.push_front(20)
 MyList.push_front(30)
-MyList.push_front(40)
 MyList.PrintList()
-```
+~~~
 ## Sample Output
-```
-40 -> 30 -> 20 -> 10
-```
+<img width="628" height="151" alt="image" src="https://github.com/user-attachments/assets/025f1f2d-a334-44f7-8da7-f97804571718" />
+
+
 ## Result
-Hence Added Element at the Start of Singly Linked List.
+Thus the output is verified.
+
